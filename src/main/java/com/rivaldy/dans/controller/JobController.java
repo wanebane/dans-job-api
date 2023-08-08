@@ -1,5 +1,6 @@
 package com.rivaldy.dans.controller;
 
+import com.rivaldy.dans.dto.response.ApiRes;
 import com.rivaldy.dans.dto.response.ApiResponse;
 import com.rivaldy.dans.service.JobService;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,11 @@ public class JobController {
     public ResponseEntity<ApiResponse> getDetailJob(@PathVariable("id") String jobId){
         var response = jobService.getDetailJob(jobId);
         return new ResponseEntity<>(response, response.status());
+    }
+
+    @GetMapping("/group")
+    public ResponseEntity<ApiRes> getJobGrouping(){
+        return ResponseEntity.ok(jobService.getGroupListJob());
     }
 }
 

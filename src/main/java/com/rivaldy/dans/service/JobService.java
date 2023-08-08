@@ -1,5 +1,6 @@
 package com.rivaldy.dans.service;
 
+import com.rivaldy.dans.dto.response.ApiRes;
 import com.rivaldy.dans.dto.response.ApiResponse;
 import com.rivaldy.dans.value.AppConstant;
 import com.rivaldy.dans.value.FormatMapper;
@@ -28,5 +29,9 @@ public class JobService {
         }
         message = String.format(AppConstant.msgSuccess, "Detail Job");
         return new ApiResponse(true, message, FormatMapper.jobDetail(detail), HttpStatus.OK);
+    }
+
+    public ApiRes getGroupListJob(){
+        return new ApiRes(0, "Ok", dansService.getResultJob());
     }
 }
